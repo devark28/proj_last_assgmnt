@@ -1,0 +1,14 @@
+[2026-04-02 23:18:34] [INFO   ] Log cleared by user
+[2026-04-02 23:18:39] [INFO   ] Background monitoring started — PID 182642
+[2026-04-02 23:18:39] [INFO   ] Background monitoring started
+[2026-04-02 23:18:39] [WARNING] Disk at 100% — threshold 90%
+[2026-04-02 23:18:51] [WARNING] Disk at 100% — threshold 90%
+[2026-04-02 23:19:19] [INFO   ] Thresholds updated: CPU=50 MEM=85 DISK=90
+[2026-04-02 23:19:23] [INFO   ] Background monitoring stopped
+[2026-04-02 23:19:23] [INFO   ] Script exited normally
+[2026-04-02 23:41:06] [INFO   ] Server Health Monitor started
+[2026-04-02 23:41:10] [INFO   ] Script terminated by signal
+[2026-04-02 23:41:13] [INFO   ] Server Health Monitor started
+[2026-04-02 23:41:28] [WARNING] CPU at 53.3% — threshold 50%
+[2026-04-02 23:41:28] [WARNING] Disk at 100% — threshold 90%
+[2026-04-02 23:43:15] [INFO   ] Script terminated by signal
