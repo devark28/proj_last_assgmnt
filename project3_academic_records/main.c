@@ -300,16 +300,18 @@ static void menu_analytics(StudentDB *db) {
     printf("    2. Median GPA\n");
     printf("    3. Top N students\n");
     printf("    4. Best student per course\n");
-    printf("    5. All of the above\n");
-    int opt = input_int("  Option: ", 1, 5);
+    printf("    5. Course average performance\n");
+    printf("    6. All of the above\n");
+    int opt = input_int("  Option: ", 1, 6);
 
-    if (opt == 1 || opt == 5) report_class_stats(db);
-    if (opt == 2 || opt == 5) report_median_gpa(db);
-    if (opt == 3 || opt == 5) {
+    if (opt == 1 || opt == 6) report_class_stats(db);
+    if (opt == 2 || opt == 6) report_median_gpa(db);
+    if (opt == 3 || opt == 6) {
         int n = input_int("  How many top students to show? ", 1, db->count);
         report_top_n(db, n);
     }
-    if (opt == 4 || opt == 5) report_best_per_course(db);
+    if (opt == 4 || opt == 6) report_best_per_course(db);
+    if (opt == 5 || opt == 6) report_course_avg(db);
 }
 
 /* ================================================================

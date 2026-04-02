@@ -267,6 +267,35 @@ void report_best_per_course(const StudentDB *db) {
     }
 }
 
+void report_course_avg(const StudentDB *db) {
+    if (!db || db->count == 0) { printf("  No records.\n"); return; }
+    char  courses[64][MAX_COURSE_LEN];
+    float sum_gpa[64];
+    int   count_per[64];
+    int   num_courses = 0;
+
+    for (int i = 0; i < db->count; i++) {
+        const char *c = db->data[i]->course;
+        int found = -1;
+        for (int j = 0; j < num_courses; j++)
+            if (strcasecmp(courses[j], c) == 0) { found = j; break; }
+        if (found == -1) {
+            if (num_courses >= 64) continue;
+            strncpy(courses[num_courses], c, MAX_COURSE_LEN - 1);
+            sum_gpa[num_courses]   = db->data[i]->gpa;
+            count_per[num_courses] = 1;
+            num_courses++;
+        } else {
+            sum_gpa[found]   += db->data[i]->gpa;
+            count_per[found] += 1;
+        }
+    }
+    printf("\n  === Course Average Performance ===\n");
+    printf("  %-22s  %9s  %s\n", "Course", "Students", "Avg GPA");
+    for (int i = 0; i < num_courses; i++)
+        printf("  %-22s  %9d  %.2f\n", courses[i], count_per[i], sum_gpa[i] / count_per[i]);
+}
+
 // sorts a temp copy of GPA values to find median without touching the db order
 void report_median_gpa(StudentDB *db) {
     if (!db || db->count == 0) { printf("  No records.\n"); return; }

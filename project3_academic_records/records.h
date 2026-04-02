@@ -59,6 +59,7 @@ void report_print_all(const StudentDB *db);
 void report_class_stats(const StudentDB *db);
 void report_top_n(const StudentDB *db, int n);
 void report_best_per_course(const StudentDB *db);
+void report_course_avg(const StudentDB *db);
 void report_median_gpa(StudentDB *db);
 
 // Student helpers
